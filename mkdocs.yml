@@ -1,0 +1,7 @@
+site_name: Curate
+theme: readthedocs
+nav:
+- User Guide:
+    - 'Quick Start': 'index.md'
+- About:
+    - 'License': 'LICENSE.md'
