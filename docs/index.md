@@ -54,7 +54,34 @@ You can find a react example at https://codesandbox.io/s/inspiring-jackson-0nx0q
 
 To get information on a single item, use the `getItem` function of the `GeneralizedTCR` class:
 
-0x22a0a12e2c9ac41b15b5c3bc4aab748550663f164f64316e0ff9447b336e3565
+```
+import { GTCRFactory } from "@kleros/gtcr-sdk";
+
+// This example assumes you have an injected provider
+// (e.g. Metamask) set to mainnet.
+const GTCR_VIEW_ADDRESS = "0x98f1309f96044000174a89c2a0e2001ea5d7a524";
+const IPFS_GATEWAY = "https://ipfs.kleros.io";
+
+const LIST_ADDRESS = "0x99A0f0e0d9Ee776D791D2E55c215d05ccF7286fC"; // List of stories for the kleros storytelling program.
+const DEPLOYMENT_BLOCK = 10247266; // Optional, but recommended. Setting the deployment block speeds up requests.
+
+const ITEM_ID =
+  "0x22a0a12e2c9ac41b15b5c3bc4aab748550663f164f64316e0ff9447b336e3565";
+
+(async () => {
+  const gtcr = new GeneralizedTCR(
+    window.ethereum,
+    LIST_ADDRESS,
+    GTCR_VIEW_ADDRESS,
+    IPFS_GATEWAY,
+    DEPLOYMENT_BLOCK
+  );
+
+  const item = await gtcr.getItem(ITEM_ID)
+  console.info(item.decodedData) // Outputs the item column values.
+})();
+
+```
 
 You can find a react example at https://codesandbox.io/s/great-frog-rti1f
 
