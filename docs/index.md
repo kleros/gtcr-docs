@@ -142,12 +142,12 @@ const gtcr = new GeneralizedTCR(
     tcrTitle: string        // The list title.
     tcrDescription: string  // The list description.
     columns: Column[]       // Used by @kleros/gtcr-encoder
-    itemName: string        // The noun used when building UIs. E.g. "Token" for a list of tokens -> "Click here to submit a *token*", in other places a button "Challenge *token*".
+    itemName: string        // The noun used when building UIs. E.g. "Token" for a list of tokens -> generates "Submit *token*", "Challenge token", etc.
     itemNamePlural: string  // Plural version of `itemName`.
     logoURI: string         // Link to the list logo. Usually an IPFS URI.
     requireRemovalEvidence: boolean // Whether to require evidence when removing an item.
-    isTCRofTCRs: false      // Whether this is a list of GTCR addresses.
-    relTcrDisabled: true    // Whether the badges TCR is enabled.
+    isTCRofTCRs: boolean      // Whether this is a list of GTCR addresses.
+    relTcrDisabled: boolean    // Whether the badges TCR is enabled.
   }
 
 
