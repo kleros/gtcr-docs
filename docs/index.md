@@ -116,3 +116,41 @@ const DEPLOYMENT_BLOCK = 10247266; // Optional, but recommended. Setting the dep
 ```
 
 You can find a React example at: https://codesandbox.io/s/elastic-frog-d5w32
+
+### Fetching Meta Evidence and Metadata
+
+The address of a GTCR by itself is not very useful for building, UIs. Usually we need other information such as the list name, description, logo etc. This data is stored inside the `metadata` field inside the meta evidence file. You can use the `getLatestMetaEvidence` to get the file like so:
+
+```
+const gtcr = new GeneralizedTCR(
+    window.ethereum,
+    LIST_ADDRESS,
+    GTCR_VIEW_ADDRESS,
+    IPFS_GATEWAY,
+    DEPLOYMENT_BLOCK
+  );
+
+  const [registrationMetaEvidence, removalMetaEvidence] = (await gtcr.getLatestMetaEvidence())
+
+  // Both removal and registration meta evidence contain the same `metadata`.
+
+  console.info(registrationMetaEvidence.metadata)
+
+  // Outputs
+
+  {
+    tcrTitle: string        // The list title.
+    tcrDescription: string  // The list description.
+    columns: Column[]       // Used by @kleros/gtcr-encoder
+    itemName: string        // The noun used when building UIs. E.g. "Token" for a list of tokens -> "Click here to submit a *token*", in other places a button "Challenge *token*".
+    itemNamePlural: string  // Plural version of `itemName`.
+    logoURI: string         // Link to the list logo. Usually an IPFS URI.
+    requireRemovalEvidence: boolean // Whether to require evidence when removing an item.
+    isTCRofTCRs: false      // Whether this is a list of GTCR addresses.
+    relTcrDisabled: true    // Whether the badges TCR is enabled.
+  }
+
+
+```
+
+> For more information on meta evidence files, see https://github.com/ethereum/EIPs/issues/792 and https://developer.kleros.io/en/latest/introduction.html.
