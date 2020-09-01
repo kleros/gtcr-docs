@@ -153,4 +153,6 @@ const gtcr = new GeneralizedTCR(
 
 ```
 
-> For more information on meta evidence files, see https://github.com/ethereum/EIPs/issues/792 and https://developer.kleros.io/en/latest/introduction.html.
+Example https://codesandbox.io/s/kind-banach-4fxnj
+
+> For more information on meta evidence files, see [EIP-792](https://github.com/ethereum/EIPs/issues/792) and [erc-792 docs](https://developer.kleros.io/en/latest/)introduction.html.
