@@ -1,4 +1,4 @@
-# T²CR Documentation
+# GTCR Documentation
 
 ## Development
 
